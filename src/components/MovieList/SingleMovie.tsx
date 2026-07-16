@@ -496,7 +496,7 @@ const SingleMovie = () => {
             <p className="text-sm text-slate-400">추천 영화가 없습니다.</p>
           ) : (
             <div className="flex gap-4 overflow-x-auto pb-2 pt-2">
-              {relatedMovies.slice(0, 5).map((related) => (
+              {relatedMovies.slice(0, 10).map((related) => (
                 <Link
                   key={related.id}
                   to={`/movie/${related.id}`}
