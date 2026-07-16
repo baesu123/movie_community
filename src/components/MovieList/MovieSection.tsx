@@ -71,7 +71,9 @@ const fetchMoviePage = async (
       params.set("sort_by", "primary_release_date.asc");
       params.set("primary_release_date.gte", today);
     } else {
-      params.set("sort_by", "release_date.desc"); // 기본: 최신순
+      params.set("sort_by", "primary_release_date.desc"); // 기본순
+      params.set("vote_average.gte", "7");
+      params.set("vote_count.gte", "50");
     }
 
     url = `${base}/discover/movie?${params.toString()}`;
@@ -125,7 +127,7 @@ export const useMovieSectionState = () => {
   const [mode, setMode] = useState<MovieSectionMode>("search");
   const [searchInput, setSearchInput] = useState("");
   const [searchQuery, setSearchQuery] = useState("");
-  const [sortOrder, setSortOrder] = useState<MovieSort>("latest");
+  const [sortOrder, setSortOrder] = useState<MovieSort>("rating");
   const { ref, inView } = useInView({ threshold: 0.2 });
   const queryClient = useQueryClient();
   const { user } = useAppStore();

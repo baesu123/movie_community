@@ -82,9 +82,9 @@ export default function Auth() {
         <div className="mb-6 rounded-2xl border border-slate-800 bg-slate-950/70 p-4 text-sm text-slate-300">
           <p className="mb-2 font-semibold text-slate-100">테스트 계정</p>
           <ul className="space-y-1 text-slate-400">
-            <li>• test1@never.com / 123456789</li>
-            <li>• test2@gmeil.com / 123456789</li>
-            <li>• test3@kekeo.com / 123456789</li>
+            <li>• test1@naver.com / 123456789</li>
+            <li>• test2@gmail.com / 123456789</li>
+            <li>• test3@kakao.com / 123456789</li>
             <li>*별도로 회원가입이 가능합니다.</li>
           </ul>
         </div>
