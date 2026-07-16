@@ -271,9 +271,12 @@ const SingleMovie = () => {
   const [profileModalComments, setProfileModalComments] = useState<Comment[]>(
     [],
   );
+  const [profileModalNickname, setProfileModalNickname] = useState("");
 
-  const handleOpenProfileModal = async (userId: string) => {
+  const handleOpenProfileModal = async (userId: string, nickname: string) => {
     setProfileModalUserId(userId);
+    setProfileModalNickname(nickname);
+
     const comments = await fetchUserComments(userId);
     setProfileModalComments(comments);
   };
@@ -418,7 +421,12 @@ const SingleMovie = () => {
                     <div>
                       <button
                         type="button"
-                        onClick={() => handleOpenProfileModal(comment.user_id)}
+                        onClick={() =>
+                          handleOpenProfileModal(
+                            comment.user_id,
+                            comment.nickname,
+                          )
+                        }
                         className="font-semibold text-slate-100 transition hover:text-indigo-300"
                       >
                         {comment.nickname}
@@ -529,7 +537,9 @@ const SingleMovie = () => {
                   사용자 댓글
                 </h3>
                 <p className="text-sm text-slate-400">
-                  ID: {profileModalUserId}
+                  <p className="text-sm text-slate-400">
+                    ID: {profileModalNickname}
+                  </p>
                 </p>
               </div>
               <button
